@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Power Calculator</h1>
+    <p>This page calculates <em>x</em> raised to the power of <em>n</em>.</p>
+
+    <script>
+      function pow(x, n) {
+        if (n < 1 || !Number.isInteger(n)) {
+          return "Enter a natural number for the exponent";
+        }
+
+        let result = 1;
+        for (let i = 0; i < n; i++) {
+          result *= x;
+        }
+        return result;
+      }
+
+      function calcPow() {
+        let x = parseFloat(prompt("Enter Base:", 1));
+        let n = parseFloat(prompt("Enter the exponent: ", 1));
+
+        if (isNaN(x) || isNaN(n)) {
+          alert("Please enter valid numbers.");
+          return;
+        }
+        let result = pow(x, n);
+        alert(`${x}^${n} = ${result}`);
+      }
+
+      window.onload = function () {
+        calcPow();
+      };
+    </script>
+  </body>
+</html>

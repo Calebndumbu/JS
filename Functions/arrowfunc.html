@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //a function expression like
+      let sum = function (a, b) {
+        return a + b;
+      };
+
+      //can also be written as
+      let sum1 = (a, b) => a + b;
+
+      console.log(sum(3, 4));
+      console.log(sum1(2, 1));
+
+      //If they're no args '()' must be present
+      let Hi = () => console.log("Hello");
+      Hi();
+
+      //can be used as fxn expressions
+      let age = prompt("What is your age?", 18);
+
+      let welcome =
+        age < 18 ? () => alert("You're a child") : () => alert("You are grown");
+      welcome();
+
+      //can be complex and multi line
+      let sum2 = (a, b) => {
+        let result = a + b;
+        return result;
+      };
+      alert(sum(3, 5));
+
+      //task to rewrite with arrow function
+      let ask = (question, yes, no) => {
+        if (confirm(question)) yes();
+        else no();
+      };
+      ask(
+        "Do you agree?",
+        () => alert("You agreed."),
+        () => alert("You canceled the execution.")
+      );
+    </script>
+  </body>
+</html>

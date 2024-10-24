@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Function library example</title>
+    <style>
+      input {
+        font-size: 2em;
+        margin: 10px 1px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <input class="numberInput" type="text" />
+    <p></p>
+
+    <script>
+      const input = document.querySelector(".numberInput");
+      const para = document.querySelector("p");
+
+      function squared(num) {
+        return num * num;
+      }
+
+      function cubed(num) {
+        return num * num * num;
+      }
+
+      function factorial(num) {
+        if (num < 0) return undefined;
+        if (num === 0) return 1;
+        let x = num - 1;
+        while (x > 1) {
+          num *= x;
+          x--;
+        }
+        return num;
+      }
+
+      function squareRoot(num) {
+        if (num < 0) {
+          return "Square root of -ve numbers is not real ";
+        } else {
+          return Math.sqrt(num);
+        }
+      }
+
+      input.addEventListener("change", () => {
+        const num = parseFloat(input.value);
+        if (isNaN(num)) {
+          para.innerHTML = "<p>You need to enter a number</p>";
+        } else {
+          para.innerHTML = `<p>${num} squared is ${squared(num)}.</p>`;
+          para.innerHTML += `<p>${num} cubed is ${cubed(num)}.</p>`;
+          para.innerHTML += `<p>${num} factorial is ${factorial(num)}.</p>`;
+          para.innerHTML += `<p>${num} square root is ${squareRoot(num)}.</p>`;
+        }
+      });
+    </script>
+  </body>
+</html>
