@@ -30,3 +30,44 @@ function getHumanChoice() {
   }
 }
 console.log(getHumanChoice());
+
+function playRound(humanChoice, computerChoice) {
+  humanChoice = humanChoice.toLowerCase();
+
+  let roundwinner;
+
+  if (humanChoice === computerChoice) {
+    console.log(`Both chose ${humanChoice}.`);
+    return;
+  }
+
+  if (
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "paper" && computerChoice === "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")
+  ) {
+    roundwinner = "human";
+    humanScore++;
+  } else {
+    roundwinner = "computer";
+    computerScore++;
+  }
+
+  if (roundwinner === "human") {
+    console.log(
+      `You win! ${
+        humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)
+      } beats ${computerChoice}`
+    );
+    console.log(
+      `You Lose! ${
+        computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
+      } beats ${humanChoice}`
+    );
+  }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
