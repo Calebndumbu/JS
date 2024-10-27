@@ -1,7 +1,3 @@
-Here’s a README file that outlines the structure and functionality of the project:
-
----
-
 # Rock Paper Scissors Game
 
 A simple Rock, Paper, Scissors game that allows a human player to play against the computer through the browser console. The game is played over five rounds, with scores tracked for both the human and computer players.
@@ -80,7 +76,3 @@ A simple Rock, Paper, Scissors game that allows a human player to play against t
 
 - This game is designed to be played in the browser console.
 - As you work on this project, commit your code regularly for better tracking of changes.
-
----
-
-This README provides a clear overview of the project’s setup and steps for building the game, making it easy for someone else to follow along or continue development.
