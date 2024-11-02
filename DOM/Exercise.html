@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>The Title of the webpage</h1>
+    <div id="container"></div>
+
+    <script>
+      //find element with the id container
+      const container = document.querySelector("#container");
+
+      //create a new div element that exists in the memory for now. Not visible
+      const content = document.createElement("div");
+
+      //adds a class called 'content' to the new div element to use for styling later
+      content.classList.add("content");
+
+      //sets the text inside the new div
+      content.textContent = "This is the glorious text content";
+
+      //adds our new div (with text) to container div in HTML.
+      //content refers to the object created with 'createElement'
+      container.appendChild(content);
+
+      //adding a paragraph
+      const para = document.createElement("p");
+      para.innerHTML = "Hey I'm red!";
+      para.style.cssText = "color: red";
+      container.appendChild(para);
+
+      const subHeading = document.createElement("h3");
+      subHeading.textContent = "I'm a blue h3!";
+      subHeading.setAttribute("style", "color: blue");
+      container.appendChild(subHeading);
+
+      const div2 = document.createElement("div");
+      div2.style.cssText = "border: 2px solid black; backgroundColor: pink;";
+
+      const heading1 = document.createElement("h1");
+      heading1.textContent = "I'm in a div";
+
+      const para2 = document.createElement("p");
+      para2.textContent = "ME TOO";
+
+      div2.appendChild(heading1);
+      div2.appendChild(para2);
+
+      container.appendChild(div2);
+    </script>
+  </body>
+</html>

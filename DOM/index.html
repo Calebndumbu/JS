@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Optional styling can be added here -->
+    <style></style>
+  </head>
+
+  <body>
+    <!-- The main container div that holds two child divs -->
+    <div id="container">
+      <!-- A div with the class "display" -->
+      <div class="display"></div>
+      <!-- A div with the class "controls" -->
+      <div class="controls"></div>
+    </div>
+  </body>
+
+  <script>
+    // Select the div with the id "container"
+    const container = document.querySelector("#container");
+
+    // Get the first child element within "container", which is the div with class "display"
+    const display = container.firstElementChild;
+
+    // Print the "display" element to the console
+    console.log(display);
+
+    // Select the div with the class "controls"
+    const controls = document.querySelector(".controls");
+
+    // Get the previous sibling of "controls", which is "display"
+    const display2 = controls.previousElementSibling;
+
+    // Print the "display2" element (same as "display" above) to the console
+    console.log(display2);
+
+    // Create a new div element in memory
+    const div = document.createElement("div");
+
+    // Append the new div as the last child of the body, making it appear at the end of the page
+    document.body.appendChild(div);
+
+    // Find the "container" div to use as a reference for where to insert the new div
+    const referenceNode = document.getElementById("container");
+
+    // Insert the new div before the "container" div, placing it earlier in the page
+    document.body.insertBefore(div, referenceNode);
+
+    //we can use the reference to alter elements properties
+    const div2 = document.createElement("div");
+
+    //adds the indicated style rule to the element in the div varible
+    div2.style.color = "blue";
+
+    //add several style rules
+    div2.style.cssText = "color:blue; background: white;";
+
+    //add several style rules
+    div2.setAttribute("style", "color:blue; background: white");
+
+    //dot notattion with kebab cased property like 'background-color'
+    //doesnt work. Us
+
+    //div.style.background-color
+
+    //use camelCase or bracket notation
+    div2.style.backgroundColor;
+    div2.style["background-color"];
+    div2.style["backgroundColor"];
+
+    //if id exists, update it to the 'myDiv'
+    //else create an id with the value "theDiv"
+    div2.setAttribute("id", "myDiv");
+    console.log(div2.getAttribute("id"));
+
+    div2.removeAttribute("id");
+    console.log(div2.getAttribute("id"));
+
+    //classes
+    div2.classList.add("new");
+    div2.classList.remove("new");
+
+    //if div2 doesnt have class 'active' then add it,
+    // if it does then remove it
+    div2.classList.toggle("active");
+
+    // Step 1: Adding plain text
+    div2.textContent = "Hello World!";
+    // Result: <div>Hello World!</div>
+
+    // Step 2: Adding HTML content
+    div2.innerHTML = "<span>Hello World!</span>";
+    // Result: <div><span>Hello World!</span></div>
+  </script>
+</html>
