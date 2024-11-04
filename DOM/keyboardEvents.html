@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- When you press a character key once on the keyboard, 
+     three keyboard events are fired in the following order:
+    1. keydown (fires repetedly)
+    2. keypress
+    3. keyup (fires repetedly) 
+    
+    Keydown and keypress are fired before anyy change is made to the textbox
+    Key up fires after changes have been made to textbox
+    
+    When you press a non-character key, 
+    the keydown event is fired first followed by the keyup event. 
+    If you hold down the non-character key, the keydown is fired repeatedly until you release the key.
+    -->
+
+    <input type="text" id="message" />
+    <script>
+      let msg = document.querySelector("#message");
+      msg.addEventListener("keydown", (e) => {
+        console.log(`key=${event.key}, code=${event.code}`);
+      });
+
+      msg.addEventListener("keypress", function () {});
+
+      msg.addEventListener("keyup", (e) => {});
+    </script>
+  </body>
+</html>
