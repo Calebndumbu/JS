@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Method 1: Adding JavaScript directly in the HTML -->
+    <!-- This approach adds JavaScript directly inside the HTML element.
+         It's less ideal because it mixes HTML with JavaScript, which can make the code harder to manage. -->
+    <button onclick="alert('Hello World')">First Button</button>
+
+    <!-- Method 2: Using JavaScript to set the onclick event in the script -->
+    <button id="btn2">Second Button</button>
+
+    <!-- Method 3: Using addEventListener for a more flexible event handling -->
+    <button id="btn3">Third Button</button>
+    <button id="btn4">Fourth Button</button>
+    <button id="btn5">Fifth Button</button>
+    <button id="btn6">Sixth Button</button>
+
+    <script>
+      // Selects the button with id "btn2" and sets an alert to trigger on click
+      const btn2 = document.querySelector("#btn2");
+      btn2.onclick = () => alert("Hello from the second button!");
+
+      // Selects the button with id "btn3" and adds an event listener to change its background color on click
+      const btn3 = document.querySelector("#btn3");
+      btn3.addEventListener("click", function (e) {
+        // 'e' is the event object; 'e.target' is the clicked element
+        // This line sets the background color of the clicked element to blue
+        e.target.style.background = "blue";
+      });
+
+      // Selects all buttons on the page and applies the same event to each one
+      const buttons = document.querySelectorAll("button");
+
+      // Loops through each button and attaches an event listener
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // When a button is clicked, it shows an alert with the button's id
+          alert(button.id);
+        });
+      });
+    </script>
+  </body>
+</html>
