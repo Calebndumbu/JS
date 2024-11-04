@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">
+      <button id="btn">Click Me!</button>
+      <a href="https://www.javascripttutorial.net">Js Tut</a>
+    </div>
+
+    <script>
+      let btn = document.querySelector("#btn");
+
+      btn.addEventListener("click", (e) => {
+        alert("It was clicked");
+
+        //stops flow of an event up the DOM
+        //but does not stop default behaviour
+        e.stopPropagation();
+      });
+
+      document.body.addEventListener("click", (e) => {
+        alert("the body was clicked");
+      });
+
+      let link = document.querySelector("a");
+      link.addEventListener("click", function (e) {
+        alert("clicked");
+
+        //prevents default behaviour.
+        //does not stop event from bubbling up the DOM
+        e.preventDefault();
+      });
+
+      //load events
+
+      //opening a page
+
+      //brower fully loads html and builds DOM tree
+      addEventListener("DOMContentLoaded", (e) => {
+        alert("The Dom is fully loaded");
+      });
+
+      //browser fully loads html and external resouses like
+      //style sheets and images
+      addEventListener("load", (e) => {
+        alert("The page is fully loaded");
+      });
+
+      //when leaving
+
+      //fires before the page & resources are unloaded.
+      //can be used to show confirmation dialog if you want
+      //to leave page
+      addEventListener("beforeunload", (e) => {
+        e.preventDefault();
+        e.returnValue = "";
+      });
+
+      //fires when page has completely unloaded
+      addEventListener("unload", (e) => {});
+    </script>
+  </body>
+</html>
