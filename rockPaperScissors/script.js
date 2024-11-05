@@ -25,7 +25,7 @@ function playRound(humanChoice) {
   const scoreDiv = document.getElementById("score");
 
   if (humanChoice === computerChoice) {
-    resultDiv.innerHTML(`Both chose ${humanChoice}.`);
+    resultDiv.innerHTML = `Both chose ${humanChoice}.`;
     return;
   }
 
@@ -35,24 +35,19 @@ function playRound(humanChoice) {
     (humanChoice === "scissors" && computerChoice === "paper")
   ) {
     roundwinner = "human";
+
+    resultDiv.innerHTML = `You win! ${
+      humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)
+    } beats ${computerChoice}`;
     humanScore++;
   } else {
     roundwinner = "computer";
     computerScore++;
+    resultDiv.innerHTML = `You Lose! ${
+      computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
+    } beats ${humanChoice}`;
   }
 
-  if (roundwinner === "human") {
-    resultDiv.innerHTML(
-      `You win! ${
-        humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)
-      } beats ${computerChoice}`
-    );
-    resultDiv.innerHTML(
-      `You Lose! ${
-        computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
-      } beats ${humanChoice}`
-    );
-  }
   scoreDiv.innerHTML = `Score: You -> ${humanScore}, Computer -> ${computerScore}`;
 }
 
