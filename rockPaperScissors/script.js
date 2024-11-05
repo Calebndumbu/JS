@@ -65,7 +65,30 @@ function annouceWinner(message) {
   document.getElementById("rock").disabled = true;
   document.getElementById("paper").disabled = true;
   document.getElementById("scissors").disabled = true;
+  document.getElementById("reset").disabled = false;
 }
+
+//reset functionality
+const reset = document.getElementById("reset");
+reset.addEventListener("click", () => {
+  humanScore = 0;
+  computerScore = 0;
+
+  const result = document.getElementById("result");
+  result.textContent = "";
+
+  const score = document.getElementById("score");
+  score.innerHTML = `Score: You -> ${humanScore}, Computer -> ${computerScore}`;
+
+  document.getElementById("rock").disabled = false;
+  document.getElementById("paper").disabled = false;
+  document.getElementById("scissors").disabled = false;
+  document.getElementById("reset").disabled = true;
+});
+
+//start the game with reset disabled
+document.getElementById("reset").disabled = true;
+
 document.getElementById("rock").addEventListener("click", () => {
   playRound("rock");
 });
