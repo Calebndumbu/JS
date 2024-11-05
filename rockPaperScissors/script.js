@@ -16,24 +16,16 @@ function getComputerChoice() {
   }
 }
 
-// function getHumanChoice() {
-//   while (true) {
-//     let choice = prompt("Enter 'rock','paper' or 'scissors'").toLowerCase();
-//     if (choice === "rock" || choice === "paper" || choice === "scissors") {
-//       return choice;
-//     } else {
-//       console.log("Please enter 'rock', 'paper' or 'scissors'");
-//     }
-//   }
-// }
-
 function playRound(humanChoice) {
   const computerChoice = getComputerChoice();
 
   let roundwinner;
 
+  const resultDiv = document.getElementById("result");
+  const scoreDiv = document.getElementById("score");
+
   if (humanChoice === computerChoice) {
-    console.log(`Both chose ${humanChoice}.`);
+    resultDiv.innerHTML(`Both chose ${humanChoice}.`);
     return;
   }
 
@@ -50,17 +42,18 @@ function playRound(humanChoice) {
   }
 
   if (roundwinner === "human") {
-    console.log(
+    resultDiv.innerHTML(
       `You win! ${
         humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)
       } beats ${computerChoice}`
     );
-    console.log(
+    resultDiv.innerHTML(
       `You Lose! ${
         computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
       } beats ${humanChoice}`
     );
   }
+  scoreDiv.innerHTML = `Score: You -> ${humanScore}, Computer -> ${computerScore}`;
 }
 
 document.getElementById("rock").addEventListener("click", () => {
@@ -73,24 +66,3 @@ document.getElementById("paper").addEventListener("click", () => {
 document.getElementById("scissors").addEventListener("click", () => {
   playRound("scissors");
 });
-// function playGame() {
-//   for (let i = 0; i < 5; i++) {
-//     const humanSelection = getHumanChoice();
-//     const computerSelection = getComputerChoice();
-
-//     playRound(humanSelection, computerSelection);
-//   }
-
-//   console.log(
-//     `Final score: You -> ${humanScore}, computer -> ${computerScore}`
-//   );
-//   if (humanScore > computerScore) {
-//     console.log("You are the winner");
-//   } else if (computerScore > humanScore) {
-//     console.log("The computer is the overall winner");
-//   } else {
-//     console.log("It's a tie");
-//   }
-// }
-
-// playGame();
