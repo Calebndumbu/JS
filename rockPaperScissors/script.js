@@ -63,24 +63,24 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-function playGame() {
-  for (let i = 0; i < 5; i++) {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
+// function playGame() {
+//   for (let i = 0; i < 5; i++) {
+//     const humanSelection = getHumanChoice();
+//     const computerSelection = getComputerChoice();
 
-    playRound(humanSelection, computerSelection);
-  }
+//     playRound(humanSelection, computerSelection);
+//   }
 
-  console.log(
-    `Final score: You -> ${humanScore}, computer -> ${computerScore}`
-  );
-  if (humanScore > computerScore) {
-    console.log("You are the winner");
-  } else if (computerScore > humanScore) {
-    console.log("The computer is the overall winner");
-  } else {
-    console.log("It's a tie");
-  }
-}
+//   console.log(
+//     `Final score: You -> ${humanScore}, computer -> ${computerScore}`
+//   );
+//   if (humanScore > computerScore) {
+//     console.log("You are the winner");
+//   } else if (computerScore > humanScore) {
+//     console.log("The computer is the overall winner");
+//   } else {
+//     console.log("It's a tie");
+//   }
+// }
 
-playGame();
+// playGame();
