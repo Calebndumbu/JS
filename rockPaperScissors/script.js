@@ -49,8 +49,23 @@ function playRound(humanChoice) {
   }
 
   scoreDiv.innerHTML = `Score: You -> ${humanScore}, Computer -> ${computerScore}`;
+  //check for winner
+  if (humanScore === 5) {
+    annouceWinner("You are the overall winner!");
+  } else if (computerScore === 5) {
+    annouceWinner("The computer is the overall winner");
+  }
 }
 
+function annouceWinner(message) {
+  const resultDiv = document.getElementById("result");
+  resultDiv.innerHTML = message;
+
+  //disable buttons after game ends
+  document.getElementById("rock").disabled = true;
+  document.getElementById("paper").disabled = true;
+  document.getElementById("scissors").disabled = true;
+}
 document.getElementById("rock").addEventListener("click", () => {
   playRound("rock");
 });
