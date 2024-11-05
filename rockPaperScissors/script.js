@@ -16,19 +16,19 @@ function getComputerChoice() {
   }
 }
 
-function getHumanChoice() {
-  while (true) {
-    let choice = prompt("Enter 'rock','paper' or 'scissors'").toLowerCase();
-    if (choice === "rock" || choice === "paper" || choice === "scissors") {
-      return choice;
-    } else {
-      console.log("Please enter 'rock', 'paper' or 'scissors'");
-    }
-  }
-}
+// function getHumanChoice() {
+//   while (true) {
+//     let choice = prompt("Enter 'rock','paper' or 'scissors'").toLowerCase();
+//     if (choice === "rock" || choice === "paper" || choice === "scissors") {
+//       return choice;
+//     } else {
+//       console.log("Please enter 'rock', 'paper' or 'scissors'");
+//     }
+//   }
+// }
 
-function playRound(humanChoice, computerChoice) {
-  humanChoice = humanChoice.toLowerCase();
+function playRound(humanChoice) {
+  const computerChoice = getComputerChoice();
 
   let roundwinner;
 
@@ -63,6 +63,16 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
+document.getElementById("rock").addEventListener("click", () => {
+  playRound("rock");
+});
+
+document.getElementById("paper").addEventListener("click", () => {
+  playRound("paper");
+});
+document.getElementById("scissors").addEventListener("click", () => {
+  playRound("scissors");
+});
 // function playGame() {
 //   for (let i = 0; i < 5; i++) {
 //     const humanSelection = getHumanChoice();
